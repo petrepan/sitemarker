@@ -1,4 +1,5 @@
 const initialCache = "initial-cache";
+const unloadCache = "unloaded-cache"
 const assets = [
   "/",
   "/index.html",
@@ -14,6 +15,7 @@ const assets = [
 
 //install service worker
 self.addEventListener("install", (e) => {
+    //store all assets
   e.waitUntil(
     caches.open(initialCache).then((cache) => {
       cache.addAll(assets);
@@ -26,7 +28,7 @@ self.addEventListener("activate", (e) => {
     e.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(keys
-                .filter(key => key !== initialCache)
+                .filter(key => key !== initialCache && key !== unloadCache)
                 .map(key => caches.delete(key))
             )
         })
@@ -35,9 +37,21 @@ self.addEventListener("activate", (e) => {
 
 //fetch service worker
 self.addEventListener("fetch", (e) => {
+    //fetch assets using the fetch event
     e.respondWith(
         caches.match(e.request).then(cacheRes => {
-            return cacheRes || fetch(e.request);
-        })
+            return cacheRes || fetch(e.request).then(fetchRes => {
+                //pre assets that were not fetched initially
+                return caches.open(unloadCache).then(cache => {
+                    cache.put(e.request.url, fetchRes.clone());
+                    return fetchRes;
+                })
+            })
+        }).catch(() => {
+            if (e.request.url.indexOf(".html") > -1) {
+                return caches.match("index.html");
+            }
+            
+            })
     )
 });
