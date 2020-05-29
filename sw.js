@@ -36,22 +36,11 @@ self.addEventListener("activate", (e) => {
 });
 
 //fetch service worker
-self.addEventListener("fetch", (e) => {
+self.addEventListener("fetch", e => {
     //fetch assets using the fetch event
     e.respondWith(
         caches.match(e.request).then(cacheRes => {
-            return cacheRes || fetch(e.request).then(fetchRes => {
-                //pre assets that were not fetched initially
-                return caches.open(unloadCache).then(cache => {
-                    cache.put(e.request.url, fetchRes.clone());
-                    return fetchRes;
-                })
-            })
-        }).catch(() => {
-            if (e.request.url.indexOf(".html") > -1) {
-                return caches.match("index.html");
-            }
-            
-            })
+            return cacheRes || fetch(e.request)
+        })
     )
 });
