@@ -78,7 +78,7 @@ function validateForm(siteUrl) {
 
   //  Check valid URL.
   if (!siteUrl.match(regexURL)) {
-    alert("Make sure URL starts with Https://");
+    alert("Invalid url");
     return false;
   }
   return true;
