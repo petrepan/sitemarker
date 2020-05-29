@@ -33,8 +33,8 @@ self.addEventListener("activate", (e) => {
 //fetch service worker
 self.addEventListener("fetch", (e) => {
     e.respondWith(
-        catches.match(e.request).then(catchRes => {
-            return catchRes || fetch(e.request);
+        caches.match(e.request).then(cacheRes => {
+            return cacheRes || fetch(e.request);
         })
     )
 });
