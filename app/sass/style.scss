@@ -54,6 +54,7 @@ body {
     width: 80%;
     margin: auto;
     padding: 16px;
+    margin-bottom:20px;
 }
 
 .nav-header {
@@ -190,7 +191,11 @@ form {
     }
 }
 
-
+.git-link{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
 
 
 @media screen and (max-width: 1350px) {
