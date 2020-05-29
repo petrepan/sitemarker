@@ -1,0 +1,15 @@
+{
+  "name": "sitemarker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "sass --watch app/sass:public/stylesheets"
+  },
+  "keywords": [],
+  "author": "Peter Awotola",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.26.5"
+  }
+}

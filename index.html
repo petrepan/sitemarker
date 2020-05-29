@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteMarker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+    <link rel="manifest" href="manifest.json">
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/app/icons/reallogo96x96.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+</head>
+<body>
+    <div id="left"></div>
+    <div id="right"></div> 
+    <div id="top"></div>
+    <div id="bottom"></div>
+    <div class="container">
+       <nav class="nav-header">
+            <div class="logo">
+                <a class="logo-text" href="#">Site<span class="coloured-logo">Marker</span></a>
+            </div>
+            <div class="theme-switch-wrapper" >
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <em id="toggle-text">Yay! up Nepa!</em>
+            </div>
+       </nav>
+        <section class="whole-section">
+            <div class="section-container">
+                <div class="form-contain">
+                    <header>
+                        <h2>Save all your faves in one place... </h2>
+                    </header>
+                    <form id="siteForm">
+                        <div class="input">
+                            <label> Name</label>
+                            <input type="text" class="siteInput" placeholder="Name.." required>
+                        </div>
+                        <div class="input siteCard">
+                            <label>URL</label>
+                            <input  type="text" class="siteUrl" placeholder="Input URL.." value="http://" required>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                
+                <div id="webOutput">
+                </div>
+            </div>
+            
+        </section>
+    </div>
+    <script src="app/control.js"></script>
+    <script src="app/index.js"></script>
+    <script src="app/toggler.js"></script>
+</body>
+</html>

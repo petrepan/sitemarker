@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap");
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+.theme-switch-wrapper em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  box-shadow: 1px 1px 5px #3e3e3f inset;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  box-shadow: 1px 1px 5px #B2BBE4 inset;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #333131;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px #A7A7D4;
+}
+
+@media screen and (max-width: 600px) {
+  .theme-switch {
+    display: inline-block;
+    height: 27px;
+    position: relative;
+    width: 40px;
+  }
+
+  .theme-switch-wrapper em {
+    font-size: 0.7rem;
+    margin-left: 5px;
+  }
+
+  .slider:before {
+    width: 20px;
+    height: 20px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(12px);
+  }
+
+  .slider.round {
+    border-radius: 14px;
+  }
+}
+:root {
+  --border-body: #faf8f8;
+}
+
+[data-theme=dark] {
+  --border-body: #040c1e;
+}
+
+#top,
+#bottom,
+#left,
+#right {
+  background: var(--border-body);
+  position: fixed;
+}
+
+#left,
+#right {
+  top: 0;
+  bottom: 0;
+  width: 7px;
+}
+
+#left {
+  left: 0;
+}
+
+#right {
+  right: 0;
+}
+
+#top,
+#bottom {
+  left: 0;
+  right: 0;
+  height: 7px;
+}
+
+#top {
+  top: 0;
+}
+
+#bottom {
+  bottom: 0;
+}
+
+:root {
+  --primary-color: #1E2B49;
+  --secondary-color: #fb5c22;
+  --font-color: #424242;
+  --bg-color: #ffffff;
+  --primary-fontfam: "Roboto", sans-serif;
+  --dark-shadow: rgba(0, 0, 0, 0.2);
+  --light-shadow: rgba(255, 255, 255, 0.549);
+}
+
+[data-theme=dark] {
+  --primary-color: #9A97F3;
+  --secondary-color: #fb5c22;
+  --font-color: #e1e1ff;
+  --bg-color: #161625;
+  --light-shadow: #25253f;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: var(--primary-fontfam);
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 16px;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+.logo-text {
+  text-decoration: none;
+  font-family: var(--primary-fontfam);
+  color: var(--font-color);
+  font-size: 28px;
+}
+.logo-text .coloured-logo {
+  color: var(--secondary-color);
+}
+
+.whole-section {
+  width: 95%;
+  margin: auto;
+  padding: 5px;
+}
+
+.section-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 20px;
+}
+.section-container .form-contain {
+  padding: 10px;
+}
+.section-container .form-contain h2 {
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+form {
+  box-shadow: 2px 4px 10px 0 var(--dark-shadow), -1px -1px 10px var(--light-shadow);
+  padding: 26px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 36px;
+}
+form button {
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: var(--secondary-color);
+  padding: 13px;
+  outline: none;
+  box-shadow: 0px 2px 16px 0 var(--dark-shadow), -1px -1px 13px var(--light-shadow);
+  border-radius: 6px;
+  margin-top: 25px;
+}
+form .input {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+form .input label {
+  font-size: 16px;
+  padding-bottom: 4px;
+  color: var(--secondary-color);
+}
+form .input input {
+  font-size: 14px;
+  background: none;
+  outline: none;
+  border: 1px solid #DCDFEC;
+  padding: 13px;
+  border-radius: 6px;
+  font-family: var(--primary-fontfam);
+  color: var(--font-color);
+}
+form .input input::placeholder {
+  font-size: 13px;
+  color: #DCDFEC;
+}
+
+#webOutput {
+  overflow: auto;
+  max-height: 600px;
+  display: flex;
+  margin-top: 70px;
+  flex-direction: column;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 16px;
+}
+#webOutput div {
+  box-shadow: 2px 4px 10px 0 var(--dark-shadow), -1px -1px 5px 0 var(--light-shadow);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 4px;
+}
+#webOutput div h3 {
+  font-size: 28px;
+  font-weight: 300;
+  padding-left: 9px;
+  text-transform: capitalize;
+}
+#webOutput div a {
+  text-decoration: none;
+  font-family: var(--primary-fontfam);
+  color: var(--font-color);
+  margin: 9px;
+  display: inline-block;
+}
+#webOutput div .visit-link {
+  background-color: var(--secondary-color);
+  padding: 7px 20px;
+  color: var(--font-color);
+  font-size: 13px;
+  border-radius: 3px;
+}
+#webOutput div .del-link {
+  border: 1px solid var(--secondary-color);
+  padding: 7px 20px;
+  color: var(--font-color);
+  font-size: 13px;
+  border-radius: 3px;
+}
+#webOutput div i {
+  padding-right: 7px;
+}
+#webOutput div a:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 1350px) {
+  #webOutput {
+    margin-top: 110px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
+
+  .section-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+  }
+
+  #webOutput {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .section-container .form-contain h2 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  form {
+    padding: 10px;
+  }
+  form button {
+    padding: 10px;
+  }
+  form .input {
+    padding: 6px;
+  }
+  form .input input {
+    padding: 10px;
+  }
+
+  #webOutput {
+    padding: 4px;
+  }
+  #webOutput div {
+    padding: 10px;
+  }
+  #webOutput div h3 {
+    font-size: 22px;
+  }
+  #webOutput div .visit-link {
+    font-size: 12px;
+  }
+  #webOutput div .del-link {
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

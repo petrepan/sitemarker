@@ -1,0 +1,44 @@
+:root{
+    --border-body: #faf8f8;
+}
+[data-theme="dark"]{
+    --border-body: #040c1e;
+}
+
+#top,
+#bottom,
+#left,
+#right {
+    background: var(--border-body);
+    position: fixed;
+}
+
+#left,
+#right {
+    top: 0; 
+    bottom: 0;
+    width: 7px;
+}
+
+#left {
+    left: 0;
+}
+
+#right {
+    right: 0;
+}
+
+#top,
+#bottom {
+    left: 0;
+    right: 0;
+    height: 7px;
+}
+
+#top {
+    top: 0;
+}
+
+#bottom {
+    bottom: 0;
+}
