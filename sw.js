@@ -1,5 +1,5 @@
-const initialCache = "initial-cache2";
-const unloadCache = "unloaded-cache";
+const initialCache = "initial-cache5";
+const unloadCache = "unloaded-cache1";
 const assets = [
   "/",
   "/index.html",
