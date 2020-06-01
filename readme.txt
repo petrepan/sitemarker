@@ -1,1 +1,0 @@
-This file contains a readme committed to github and submitted to hng internship for task zero.
